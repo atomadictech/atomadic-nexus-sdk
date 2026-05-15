@@ -1,0 +1,3 @@
+[console_scripts]
+atomadic-nexus-mcp = atomadic_nexus.mcp_server:launch
+nexus = atomadic_nexus.cli:main
