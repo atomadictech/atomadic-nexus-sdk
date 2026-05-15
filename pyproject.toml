@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atomadic-nexus-sdk"
+version = "0.1.0"
+description = "Atomadic Nexus SDK — The Trust Layer for the Agent Economy. x402, Stripe, lineage, hallucination, reputation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Atomadic Tech" },
+]
+keywords = [
+    "trust", "x402", "stripe", "agent", "mcp",
+    "lineage", "hallucination", "reputation",
+    "owasp", "ai-safety", "atomadic",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp[cli]>=1.0.0"]
+
+[project.scripts]
+nexus = "atomadic_nexus.cli:main"
+atomadic-nexus-mcp = "atomadic_nexus.mcp_server:launch"
+
+[project.urls]
+Homepage    = "https://atomadic.tech"
+Source      = "https://github.com/atomadictech/atomadic-nexus-sdk"
+Issues      = "https://github.com/atomadictech/atomadic-nexus-sdk/issues"
+Pricing     = "https://atomadic.tech/pricing"
+SourceOfTruth = "https://sot.atomadic.tech/SoT.json"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
